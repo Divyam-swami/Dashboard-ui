@@ -7,6 +7,7 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table"
+import { motion } from "framer-motion"
 
 import {
   Table,
@@ -35,7 +36,24 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-   <div>
+    <motion.div
+    initial="hidden" animate="visible" variants={{
+      hidden: {
+        scale: .8,
+        opacity: 0
+      },
+      visible: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+          duration:.3,
+          delay: .2
+        }
+      },
+    }}
+    >
+  <div>
+    
    <div className="rounded-md border">
       <Table>
         <TableHeader>
@@ -99,6 +117,7 @@ export function DataTable<TData, TValue>({
         </Button>
       </div>
     </div>
+    </motion.div>
     
   )
 }

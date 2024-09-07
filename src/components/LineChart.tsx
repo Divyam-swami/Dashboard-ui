@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion"; 
 import {
   LineChart as Chart,
   Line,
@@ -52,6 +53,19 @@ export default function LineChart() {
   };
 
   return (
+    <motion.div  initial="hidden" animate="visible" variants={{
+      hidden: {
+        scale: .8,
+        opacity: 0
+      },
+      visible: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+          delay: 1
+        }
+      },
+    }}>
     <ResponsiveContainer width="100%" height={400}>
       <Chart
         width={500}
@@ -87,5 +101,6 @@ export default function LineChart() {
         />
       </Chart>
     </ResponsiveContainer>
+    </motion.div>
   );
 }

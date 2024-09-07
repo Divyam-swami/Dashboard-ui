@@ -3,6 +3,7 @@
 
 import React from 'react'
 import {BarChart as Bargraph  ,ResponsiveContainer, XAxis , Bar, YAxis} from 'recharts'
+import { motion } from 'framer-motion'
 
 
 const data=[
@@ -58,7 +59,24 @@ const data=[
 ]
 
 export default function BarChart() {
-  return <ResponsiveContainer width={"100%"} height={300}>
+  return(
+    <motion.div
+    initial="hidden" animate="visible" variants={{
+        hidden: {
+          scale: .8,
+          opacity: 0
+        },
+        visible: {
+          scale: 1,
+          opacity: 1,
+          transition: {
+            duration:.5,
+            delay: .5
+          }
+        },
+      }}
+    >
+   <ResponsiveContainer width={"100%"} height={300}>
       <Bargraph data={data}>
           <XAxis dataKey={"name"}
           tickLine={false}
@@ -77,4 +95,6 @@ export default function BarChart() {
       </Bargraph>
 
   </ResponsiveContainer>
+  </motion.div>
+  )
 }

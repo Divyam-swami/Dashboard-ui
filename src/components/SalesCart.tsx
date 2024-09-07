@@ -1,4 +1,6 @@
+"use client"
 import React from 'react'
+import { motion } from 'framer-motion'
 
 
 export type SalesProps = {
@@ -9,6 +11,17 @@ export type SalesProps = {
 
 export default function SalesCard(props: SalesProps) {
   return (
+   
+    <motion.div
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, delay:1.4 }}
+
+  
+      
+    
+    
+    >
     <div className='flex justify-between flex-wrap gap-3'>
       <section className='flex justify-between gap-3'>
         <div className='h-12 w-12 bg-gray-100 p-1 rounded-full'>
@@ -29,5 +42,6 @@ export default function SalesCard(props: SalesProps) {
       </section>
       <p>{props.saleAmount}</p>
     </div>
+    </motion.div>
   )
 }

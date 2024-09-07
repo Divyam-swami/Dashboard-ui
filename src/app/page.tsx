@@ -1,36 +1,10 @@
-import Card, { CardContent, CardProps } from "@/components/Card";
+import { CardContent } from "@/components/Card";
 import PageTitle from "@/components/pagetitle";
-import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
 import BarChart from "@/components/BarChart";
 import SalesCard, { SalesProps } from "@/components/SalesCart";
 import LineChart from "@/components/LineChart";
 import SubscriptionCart, { SubsciptionProps } from "@/components/subscriptionCart";
-const cardData: CardProps[]= [
-  {
-    label: "Total Revenue",
-    amount: "₹10,24,356.02",
-    description: "+20.1% from last month",
-    icon: DollarSign,
-  },
-  {
-    label: "Subscription",
-    amount: "+2350",
-    description: "+100.1% from last month",
-    icon: Users,
-  },
-  {
-    label: "Sales",
-    amount: "+12,234",
-    description: "+19% from last month",
-    icon: CreditCard,
-  },
-  {
-    label: "Active now",
-    amount: "+573",
-    description: "+201 scince last hour",
-    icon: Activity,
-  },
-]
+import Maincard from "@/components/maincard";
 
 const userSalesData: SalesProps[]=[
   {
@@ -98,18 +72,7 @@ export default function Home() {
   return (
     <div  className="flex flex-col gap-2 w-full ">
           <PageTitle title="Dashboard" data-aos="fade-up"/>
-          <section className="grid w-full grid-cols-1 gap-4 gap-x-8 transition-all 
-          sm:grid-cols-2 xl:grid-cols-4">
-            {cardData.map((d,i)=>(
-                     <Card key={i}
-                      amount={d.amount}
-                      description={d.description}
-                      label={d.label}
-                      icon={d.icon}
-                     />
-
-            ))}
-          </section>
+         <Maincard/>
           <section className="grid grid-cols-1 gap-4 transition-all lg:grid-cols-2">
               <CardContent className="min-h-[400px]">
                 <p className="p-4 font-semibold">Overview</p>

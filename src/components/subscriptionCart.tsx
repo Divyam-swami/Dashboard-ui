@@ -1,4 +1,7 @@
+"use client"
+
 import React from 'react'
+import { motion } from 'framer-motion'
 
 
 export type SubsciptionProps = {
@@ -9,6 +12,15 @@ export type SubsciptionProps = {
 
 export default function SubscriptionCart(props: SubsciptionProps) {
   return (
+    <motion.div
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, delay:1.2 }}
+  
+      
+    
+    
+    >
     <div className='flex justify-between flex-wrap gap-3'>
       <section className='flex justify-between gap-3'>
         <div className='h-12 w-12 bg-gray-100 p-1 rounded-full'>
@@ -29,5 +41,6 @@ export default function SubscriptionCart(props: SubsciptionProps) {
       </section>
       <p>{props.status}</p>
     </div>
+    </motion.div>
   )
 }
